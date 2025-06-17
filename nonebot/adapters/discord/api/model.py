@@ -449,7 +449,7 @@ class ComponentEmoji(BaseModel):
     see https://discord.com/developers/docs/interactions/message-components#button-object
     """
 
-    id: Optional[str] = Field(...)
+    id: Missing[str] = UNSET
     """emoji id"""
     name: Optional[str] = Field(...)
     """emoji name"""
