@@ -909,7 +909,7 @@ async def _create_reaction(
         headers=headers,
         method="PUT",
         url=adapter.base_url
-        / f"channels/{channel_id}/messages/{message_id}/reactions/{quote(emoji)}/@me",
+        / f"channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me",
     )
     await _request(adapter, bot, request)
 
@@ -932,7 +932,7 @@ async def _delete_own_reaction(
         headers=headers,
         method="DELETE",
         url=adapter.base_url
-        / f"channels/{channel_id}/messages/{message_id}/reactions/{quote(emoji)}/@me",
+        / f"channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me",
     )
     await _request(adapter, bot, request)
 
@@ -956,7 +956,7 @@ async def _delete_user_reaction(
         headers=headers,
         method="DELETE",
         url=adapter.base_url
-        / f"channels/{channel_id}/messages/{message_id}/reactions/{quote(emoji)}/{user_id}",  # noqa: E501
+        / f"channels/{channel_id}/messages/{message_id}/reactions/{emoji}/{user_id}",  # noqa: E501
     )
     await _request(adapter, bot, request)
 
@@ -980,7 +980,7 @@ async def _get_reactions(
         headers=headers,
         method="GET",
         url=adapter.base_url
-        / f"channels/{channel_id}/messages/{message_id}/reactions/{quote(emoji)}",
+        / f"channels/{channel_id}/messages/{message_id}/reactions/{emoji}",
         params=params,
     )
     return type_validate_python(list[User], await _request(adapter, bot, request))
@@ -1024,7 +1024,7 @@ async def _delete_all_reactions_for_emoji(
         headers=headers,
         method="DELETE",
         url=adapter.base_url
-        / f"channels/{channel_id}/messages/{message_id}/reactions/{quote(emoji)}",
+        / f"channels/{channel_id}/messages/{message_id}/reactions/{emoji}",
     )
     await _request(adapter, bot, request)
 
